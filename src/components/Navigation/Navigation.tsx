@@ -83,7 +83,7 @@ export const Navigation: React.FC<{}> = ({}) => {
         }
       >
         {navigationItems.map((navigationItem) => (
-          <li key={navigationItem.id}>
+          <li data-testid="navigationListItem" key={navigationItem.id}>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger

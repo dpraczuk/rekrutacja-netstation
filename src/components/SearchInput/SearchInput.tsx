@@ -18,6 +18,7 @@ export const SearchInput: React.FC<{
   return (
     <div className={"relative"}>
       <input
+        data-testid="searchInput"
         placeholder={placeholder}
         value={searchValue}
         onChange={changeInputValue}

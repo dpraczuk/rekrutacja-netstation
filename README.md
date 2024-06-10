@@ -51,7 +51,7 @@ export default App;
 ```
 
 **`Navigation.tsx`**
-Komponent odpowiada za nawigowanie użytkownika po interfejsie aplikacji. Zaimplementowany został tak, by łatwo było go rozszerzać o nawigowalne ścieżki. It also includes a Tooltip component which is responsible for displaying tooltips when the mouse hovers over an icon.
+The component is responsible for navigating the user through the application interface. It is implemented so that it can be easily extended with navigable paths. It also includes a Tooltip component which is responsible for displaying tooltips when the mouse hovers over an icon.
 
 ```typescript
 import { useState } from "react";
@@ -510,8 +510,59 @@ In this project I used Tailwind.css, so every class in component represent some 
 
 ### Backend mock
 
-**`tags.json`**
-A mock json file to simulate backend.
+Backend was deployed using Vercel platform. In repository I used "json-server" package and few lines of Node.js code.
+
+**`Fake Api endpoint:`**
+https://fake-api-sandy.vercel.app/
+
+**`Node.js code`**
+
+```typescript
+const jsonServer = require("json-server");
+const server = jsonServer.create();
+const router = jsonServer.router("db.json");
+const middlewares = jsonServer.defaults();
+
+server.use(middlewares);
+
+server.use(
+  jsonServer.rewriter({
+    "/api/*": "/$1",
+    "/blog/:resource/:id/show": "/:resource/:id",
+  })
+);
+server.use(router);
+server.listen(3000, () => {
+  console.log("JSON Server is running");
+});
+
+module.exports = server;
+```
+
+**`Vercel json`**
+
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["db.json"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ]
+}
+```
+
+**`Data in database`**
 
 ```json
 [
@@ -555,5 +606,4 @@ A mock json file to simulate backend.
     "tag": "Kabaret",
     "relatedTags": 12
   }
-]
 ```

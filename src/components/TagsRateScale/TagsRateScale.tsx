@@ -1,7 +1,7 @@
 import React from "react";
 import { InformationIcon, InformationVariant } from "../Icons";
 
-const tagsMissing = (tagsAmount: number) => {
+export const tagsMissing = (tagsAmount: number) => {
   return tagsAmount > 5 ? 0 : 5 - tagsAmount;
 };
 
