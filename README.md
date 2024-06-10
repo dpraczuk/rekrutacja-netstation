@@ -465,7 +465,8 @@ export function TagsProvider({ children }: { children: React.ReactNode }) {
   const [submitedTags, setSubmitedTags] = useState<Tag[]>([]);
 
   useEffect(() => {
-    fetch("../../mock/tags.json")
+    //fakeAPI
+    fetch("https://fake-api-sandy.vercel.app/data")
       .then((response) => response.json())
       .then((data) => setTags(data));
   }, []);
