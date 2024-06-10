@@ -25,6 +25,14 @@ npm install
 npm run dev
 ```
 
+### Tests
+
+To run test type:
+
+```
+npm test
+```
+
 3. **Open the application in your web browser:**
    Navigate to `http://localhost:5173`.
 
@@ -607,3 +615,7 @@ module.exports = server;
     "relatedTags": 12
   }
 ```
+
+### Tests
+
+Test was written using React Testing Library and Jest.
