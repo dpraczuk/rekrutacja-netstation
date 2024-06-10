@@ -27,7 +27,7 @@ npm run dev
 
 ### Tests
 
-To run test type:
+To run tests type:
 
 ```
 npm test
@@ -618,4 +618,4 @@ module.exports = server;
 
 ### Tests
 
-Test was written using React Testing Library and Jest.
+Tests was written using React Testing Library and Jest.
