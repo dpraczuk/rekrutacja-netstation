@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import type { Tag } from "../types/types";
+import "whatwg-fetch";
 
 export function TagsProvider({ children }: { children: React.ReactNode }) {
   const [tags, setTags] = useState<Tag[]>([]);

@@ -1,7 +1,7 @@
 import { Navigation } from "./components/Navigation/Navigation";
 import { TagsProvider } from "./stores/TagsContext";
 
-export function App() {
+function App() {
   return (
     <TagsProvider>
       <Navigation />

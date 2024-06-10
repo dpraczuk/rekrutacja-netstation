@@ -1,13 +1,15 @@
 import React from "react";
 import { InformationIcon, InformationVariant } from "../Icons";
 
+const tagsMissing = (tagsAmount: number) => {
+  return tagsAmount > 5 ? 0 : 5 - tagsAmount;
+};
+
 export const TagsRateScale: React.FC<{
   tagsAmount: number;
 }> = ({ tagsAmount }) => {
   const tagsFullfilled = new Array(tagsAmount).fill(0);
-  const tagsUnfullfilled = new Array(tagsAmount > 5 ? 0 : 5 - tagsAmount).fill(
-    0
-  );
+  const tagsUnfullfilled = new Array(tagsMissing(tagsAmount)).fill(0);
 
   const renderScaleParagraph = () => {
     if (tagsAmount <= 3) {

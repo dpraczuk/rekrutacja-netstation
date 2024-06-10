@@ -74,7 +74,7 @@ export const Navigation: React.FC<{}> = ({}) => {
   };
 
   return (
-    <nav>
+    <nav data-testid="navigation">
       <ul
         className={
           "relative flex flex-col p-2 gap-1 border border-gray-200 w-fit" +
